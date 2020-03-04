@@ -11,10 +11,10 @@ public class App
     {
         ListCustom<Integer> newList = new ListCustom<Integer>();
         Scanner scanner = new Scanner(System.in);
-        LOGGER.info("Enter Size : ");
-        int n;
-        n = scanner.nextInt();
-        for(int i=0;i<n;i++)
+        LOGGER.info("Enter Size of List: ");
+        int size;
+        size = scanner.nextInt();
+        for(int i=0;i<size;i++)
         {
             newList.add(scanner.nextInt());
         }

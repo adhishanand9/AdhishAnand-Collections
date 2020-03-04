@@ -10,12 +10,12 @@ public class ListCustom<T> extends AbstractList<T>
     private static final int INT_CAP = 20;
     public int size;
     private int reference = 0;
-    private Object data[];
+    private Object object[];
 
     public ListCustom()
     {
         this.size = INT_CAP;
-        data = new Object[this.size];
+        object = new Object[this.size];
     }
 
     @Override
@@ -25,8 +25,8 @@ public class ListCustom<T> extends AbstractList<T>
 
     private void increaseSize()
     {
-        this.size = this.data.length * 2;
-        this.data = Arrays.copyOf(this.data,this.reference);
+        this.size = this.object.length * 2;
+        this.object = Arrays.copyOf(this.object,this.reference);
     }
 
     @Override
@@ -36,8 +36,8 @@ public class ListCustom<T> extends AbstractList<T>
         {
             new Error("Out of Bound");
         }
-        this.data[index] = element;
-        return (T) this.data[index];
+        this.object[index] = element;
+        return (T) this.object[index];
     }
 
     @Override
@@ -47,7 +47,7 @@ public class ListCustom<T> extends AbstractList<T>
         {
             increaseSize();
         }
-        data[this.reference++] = da;
+        object[this.reference++] = da;
         return true;
     }
 
@@ -57,7 +57,7 @@ public class ListCustom<T> extends AbstractList<T>
         int i=0;
         while(i < this.reference)
         {
-            str += this.data[i++]+" ";
+            str += this.object[i++]+" ";
         }
         LOGGER.info(str+"\n");
     }
@@ -65,16 +65,16 @@ public class ListCustom<T> extends AbstractList<T>
     @Override
     public T get(int index)
     {
-        return (T)this.data[index];
+        return (T)this.object[index];
     }
 
     @Override
     public T remove(int index)
     {
-        Object obj = this.data[index];
+        Object obj = this.object[index];
         for(int i = index;i<this.reference-1;i++)
         {
-            this.data[i] = this.data[i+1];
+            this.object[i] = this.object[i+1];
         }
         this.reference--;
         return (T)obj;
